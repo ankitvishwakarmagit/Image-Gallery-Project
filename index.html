@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Image Gallery</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+      }
+      .gallery-container {
+        max-width: 600px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .thumbnails {
+        display: flex;
+        gap: 6px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        max-width: 100%;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .thumbnails::-webkit-scrollbar {
+        display: none;
+      }
+      .thumbnails img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+        border: 2px solid transparent;
+      }
+      .thumbnails img:hover {
+        box-shadow: 0 0 8px #28a745;
+        border-color: #28a745;
+      }
+      .main-image {
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+      }
+      .main-image img {
+        width: 500px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="text-align: center; font-size: 50px">Image Gallery Simulation</h2>
+
+    <div class="gallery-container">
+      <div class="main-image">
+        <img id="mainImg" src="./images/img1.jpg" alt="Main" />
+      </div>
+
+      <div class="thumbnails">
+        <img src="./images/img1.png" onclick="showImage(this.src)" />
+        <img src="./images/img2.jpg" onclick="showImage(this.src)" />
+        <img src="./images/img3.png" onclick="showImage(this.src)" />
+        <img src="./images/img4.avif" onclick="showImage(this.src)" />
+        <img src="./images/img5.jpg" onclick="showImage(this.src)" />
+        <img src="./images/img6.jpg" onclick="showImage(this.src)" />
+        <img src="./images/img7.avif" onclick="showImage(this.src)" />
+        <img src="./images/img8.jpg" onclick="showImage(this.src)" />
+        <img src="./images/img9.jpg" onclick="showImage(this.src)" />
+        <img src="./images/img10.jpg" onclick="showImage(this.src)" />
+      </div>
+    </div>
+
+    <script>
+      function showImage(src) {
+        document.getElementById("mainImg").src = src;
+      }
+
+      // Set default image to first thumbnail
+      window.onload = function () {
+        var firstImg = document.querySelector(".thumbnails img");
+        if (firstImg) {
+          document.getElementById("mainImg").src = firstImg.src;
+        }
+      };
+    </script>
+  </body>
+</html>
